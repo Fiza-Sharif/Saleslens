@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About SalesLens - Enterprise ML Engine</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary": "#ffffff",
+                      "on-background": "#191c1e",
+                      "surface-dim": "#d8dadc",
+                      "secondary": "#545f73",
+                      "inverse-on-surface": "#eff1f3",
+                      "on-error": "#ffffff",
+                      "surface-variant": "#e0e3e5",
+                      "on-secondary-fixed-variant": "#3c475a",
+                      "tertiary-container": "#66768d",
+                      "on-secondary-fixed": "#111c2d",
+                      "on-tertiary-fixed": "#0b1c30",
+                      "inverse-primary": "#b3c5ff",
+                      "outline": "#737686",
+                      "primary-container": "#326cef",
+                      "surface": "#f7f9fb",
+                      "surface-tint": "#0254d7",
+                      "primary-fixed": "#dbe1ff",
+                      "outline-variant": "#c3c6d7",
+                      "tertiary": "#4d5d73",
+                      "on-primary-container": "#fefcff",
+                      "on-surface-variant": "#434654",
+                      "error": "#ba1a1a",
+                      "surface-container-low": "#f2f4f6",
+                      "surface-container": "#eceef0",
+                      "tertiary-fixed": "#d3e4fe",
+                      "on-primary-fixed": "#00184a",
+                      "tertiary-fixed-dim": "#b7c8e1",
+                      "inverse-surface": "#2d3133",
+                      "error-container": "#ffdad6",
+                      "surface-container-high": "#e6e8ea",
+                      "primary": "#0052d3",
+                      "on-surface": "#191c1e",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-bright": "#f7f9fb",
+                      "secondary-fixed": "#d8e3fb",
+                      "secondary-fixed-dim": "#bcc7de",
+                      "on-tertiary-fixed-variant": "#38485d",
+                      "on-tertiary-container": "#fdfcff",
+                      "primary-fixed-dim": "#b3c5ff",
+                      "on-secondary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "background": "#f7f9fb",
+                      "on-secondary-container": "#586377",
+                      "secondary-container": "#d5e0f8",
+                      "on-primary-fixed-variant": "#003ea6",
+                      "surface-container-highest": "#e0e3e5",
+                      "on-error-container": "#93000a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "48px",
+                      "unit": "8px",
+                      "margin-mobile": "16px",
+                      "container-max": "1280px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "display-lg-mobile": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+          font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Subtle background pattern */
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+        }
+      </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col relative overflow-x-hidden">
+<!-- Background Grid -->
+<div class="absolute inset-0 bg-grid-pattern pointer-events-none z-0"></div>
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-margin-desktop h-16 bg-surface/80 backdrop-blur-md border-b border-outline-variant dark:border-outline">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3">
+<img alt="SalesLens Logo" class="h-8 w-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnwRsPKhOCoX6t1GTltBKLrepbzDdGQ7LqClQNL-sQbrrN31xhMOMv7qh4tzSYPeZjBLAaxdudhjE4wTZvtWf6EMjS-BUI07IIvc2ehdGlRw4xi4Pcssy2odes021tgdPXs2Pa9o1l_qjpESt1fRKiHZT8RSGBEF4GbAwQ1NW8ueDi5kGQmvcnmu-2F06U_NWQkyoa0vXDn2Tu2DIyay0qkJ48zkJpe2ejoy_XSXel-A9qhCay8kOsUSV1wQaPKBd-w8s"/>
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary tracking-tight">SalesLens</span>
+</div>
+<nav aria-label="Main Navigation" class="hidden md:flex items-center gap-6">
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary transition-colors font-label-sm text-label-sm hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all duration-200 px-2 py-1 rounded" href="#">Home</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary transition-colors font-label-sm text-label-sm hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all duration-200 px-2 py-1 rounded" href="#">Prediction</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary transition-colors font-label-sm text-label-sm hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all duration-200 px-2 py-1 rounded" href="#">Analytics</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary transition-colors font-label-sm text-label-sm hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all duration-200 px-2 py-1 rounded" href="#">Dataset</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary transition-colors font-label-sm text-label-sm hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all duration-200 px-2 py-1 rounded" href="#">Model</a>
+<a class="text-primary dark:text-inverse-primary font-bold border-b-2 border-primary dark:border-inverse-primary pb-1 font-label-sm text-label-sm px-2 mt-1" href="#">About</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden lg:block">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline text-sm" data-icon="search">search</span>
+</div>
+<input class="pl-10 pr-4 py-1.5 bg-surface-container-low border-none rounded-full text-label-sm font-label-sm focus:ring-2 focus:ring-primary focus:outline-none w-48 transition-all" placeholder="Search..." type="text"/>
+</div>
+<button aria-label="Dark Mode Toggle" class="text-secondary hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+<button aria-label="Settings" class="text-secondary hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<button class="ml-2 w-8 h-8 rounded-full overflow-hidden border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary ring-offset-2">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A professional headshot of a business user in a modern office environment, high resolution, soft lighting, corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR4LxEXdZu9LCrm9FKnoYaN8Rt920ca7SFUi_E8xAyQCS99SM5FXn7_xCPsK2MAuY1RtRVtv6b_m1KAlJj9EXRy1KP435kxRVICrO7YAs6jrfH9ufBFuY3XBocwoVQZSk3uWCznnb8EAEIiJ23yfvgneT5DdUxQ0lJGV-nAZZO2h67dsb4gVZGZqp_41LdU1gs-hTCnqMTgdIzAH1klQpQ8XxeuShdK6t0T6vCMEOAefXJqMAU8TlQhQ"/>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-24 pb-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative z-10 flex flex-col gap-16 lg:gap-24">
+<!-- Hero Section -->
+<section class="flex flex-col items-center text-center max-w-3xl mx-auto pt-12">
+<div class="inline-flex items-center px-3 py-1 rounded-full bg-primary-container/20 text-primary mb-6 border border-primary/10">
+<span class="material-symbols-outlined text-sm mr-2" data-icon="info">info</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">About the Platform</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-background mb-6 tracking-tight">About SalesLens</h1>
+<p class="font-body-lg text-body-lg text-secondary leading-relaxed">
+                We are building the future of revenue operations. SalesLens is an enterprise machine learning engine designed to make highly accurate sales forecasting accessible, transparent, and actionable for modern revenue teams.
+            </p>
+</section>
+<!-- Bento Grid: Features & Mission -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Mission Card (Spans 2) -->
+<div class="md:col-span-2 bg-surface rounded-2xl p-8 border border-outline-variant shadow-sm hover:-translate-y-0.5 transition-transform duration-300">
+<div class="flex items-start gap-4 mb-6 pb-6 border-b border-surface-variant">
+<div class="p-3 bg-tertiary-container/10 rounded-xl text-tertiary">
+<span class="material-symbols-outlined text-3xl" data-icon="rocket_launch">rocket_launch</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Our Mission</h2>
+<p class="font-body-md text-body-md text-secondary">Democratizing predictive analytics for sales.</p>
+</div>
+</div>
+<div class="prose prose-slate max-w-none font-body-md text-on-surface-variant leading-relaxed space-y-4">
+<p>Traditional sales forecasting relies heavily on intuition and simple historical averages. In today's volatile markets, this is no longer sufficient.</p>
+<p>At SalesLens, we believe that advanced machine learning should not be locked behind a team of data scientists. Our mission is to provide an intuitive, powerful interface that allows sales leaders and analysts to leverage complex predictive models—without writing a single line of code.</p>
+<p>By automating the data pipeline and simplifying model selection, we enable teams to focus on strategy rather than spreadsheets.</p>
+</div>
+</div>
+<!-- How it Works (Vertical) -->
+<div class="bg-surface rounded-2xl p-8 border border-outline-variant shadow-sm hover:-translate-y-0.5 transition-transform duration-300 flex flex-col">
+<div class="flex items-center gap-3 mb-6 pb-6 border-b border-surface-variant">
+<span class="material-symbols-outlined text-primary" data-icon="model_training">model_training</span>
+<h2 class="font-headline-md text-headline-md text-on-surface text-xl">How it Works</h2>
+</div>
+<div class="flex-grow space-y-6">
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-label-sm font-bold">1</div>
+<div>
+<h3 class="font-bold text-on-surface mb-1">Ingest</h3>
+<p class="text-sm text-secondary">Connect CRM data or upload datasets.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-label-sm font-bold">2</div>
+<div>
+<h3 class="font-bold text-on-surface mb-1">Train</h3>
+<p class="text-sm text-secondary">Auto-select and train regression models.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-label-sm font-bold">3</div>
+<div>
+<h3 class="font-bold text-on-surface mb-1">Predict</h3>
+<p class="text-sm text-secondary">Generate highly accurate revenue forecasts.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technology Stack -->
+<section class="bg-surface-container-low rounded-3xl p-10 border border-outline-variant/50 relative overflow-hidden">
+<!-- Decorative blur -->
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative z-10 text-center mb-10">
+<h2 class="font-display-lg text-3xl font-bold text-on-surface mb-4">Powered by Modern Tech</h2>
+<p class="font-body-md text-secondary max-w-2xl mx-auto">Built on a robust stack of industry-standard data science and web technologies ensuring scalability, performance, and security.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto">
+<!-- Tech Pill 1 -->
+<div class="bg-surface rounded-xl p-4 border border-outline-variant flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="terminal">terminal</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Python</span>
+</div>
+<!-- Tech Pill 2 -->
+<div class="bg-surface rounded-xl p-4 border border-outline-variant flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined text-4xl text-[#150458]" data-icon="table_chart">table_chart</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Pandas</span>
+</div>
+<!-- Tech Pill 3 -->
+<div class="bg-surface rounded-xl p-4 border border-outline-variant flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined text-4xl text-[#F7931E]" data-icon="hub">hub</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Scikit-Learn</span>
+</div>
+<!-- Tech Pill 4 -->
+<div class="bg-surface rounded-xl p-4 border border-outline-variant flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined text-4xl text-on-surface" data-icon="api">api</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">FastAPI</span>
+</div>
+<!-- Tech Pill 5 -->
+<div class="bg-surface rounded-xl p-4 border border-outline-variant flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined text-4xl text-secondary" data-icon="web">web</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Next.js</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container border-t border-outline-variant mt-auto py-12">
+<div class="max-w-container-max mx-auto px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-3">
+<img alt="SalesLens Logo" class="h-6 w-6 opacity-70 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDutftRxN07Jw-PwMASmXb59r2c8xheRYr5m7UkFKdN4TWksKLB5fLZqJQSRixFmOCK3wxAOmAv1TJvRYRcI_tQ3tfHlbzLmNdoj_kDHS1Meb_iir87bzpgyYx9piHhs-UO26jjWvwIHdlSpHM_d04cPu1cLoIuKL-6vVZjRpNTESivkaiqIZgGPFrxn20CNPgU2CebAVVyg3vBMx1_X6sO36Z4zQPNV7C4WJHghyhUt2qYLBrnrfP2qs1BMk_EDcd4ois"/>
+<span class="font-label-sm text-secondary font-bold tracking-widest uppercase">SalesLens</span>
+</div>
+<div class="flex gap-6 font-label-sm text-label-sm text-secondary">
+<a class="hover:text-primary transition-colors" href="#">Documentation</a>
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+<div class="text-sm text-secondary-fixed-dim">
+                © 2024 SalesLens AI. All rights reserved.
+            </div>
+</div>
+</footer>
+</body></html>

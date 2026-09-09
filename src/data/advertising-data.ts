@@ -1,0 +1,1410 @@
+export interface AdvertisingRecord {
+  id: number;
+  TV: number;
+  Radio: number;
+  Newspaper: number;
+  Sales: number;
+}
+
+export const ADVERTISING_DATA: AdvertisingRecord[] = [
+  {
+    "id": 1,
+    "TV": 230.1,
+    "Radio": 37.8,
+    "Newspaper": 69.2,
+    "Sales": 22.1
+  },
+  {
+    "id": 2,
+    "TV": 44.5,
+    "Radio": 39.3,
+    "Newspaper": 45.1,
+    "Sales": 10.4
+  },
+  {
+    "id": 3,
+    "TV": 17.2,
+    "Radio": 45.9,
+    "Newspaper": 69.3,
+    "Sales": 12.0
+  },
+  {
+    "id": 4,
+    "TV": 151.5,
+    "Radio": 41.3,
+    "Newspaper": 58.5,
+    "Sales": 16.5
+  },
+  {
+    "id": 5,
+    "TV": 180.8,
+    "Radio": 10.8,
+    "Newspaper": 58.4,
+    "Sales": 17.9
+  },
+  {
+    "id": 6,
+    "TV": 8.7,
+    "Radio": 48.9,
+    "Newspaper": 75.0,
+    "Sales": 7.2
+  },
+  {
+    "id": 7,
+    "TV": 57.5,
+    "Radio": 32.8,
+    "Newspaper": 23.5,
+    "Sales": 11.8
+  },
+  {
+    "id": 8,
+    "TV": 120.2,
+    "Radio": 19.6,
+    "Newspaper": 11.6,
+    "Sales": 13.2
+  },
+  {
+    "id": 9,
+    "TV": 8.6,
+    "Radio": 2.1,
+    "Newspaper": 1.0,
+    "Sales": 4.8
+  },
+  {
+    "id": 10,
+    "TV": 199.8,
+    "Radio": 2.6,
+    "Newspaper": 21.2,
+    "Sales": 15.6
+  },
+  {
+    "id": 11,
+    "TV": 66.1,
+    "Radio": 5.8,
+    "Newspaper": 24.2,
+    "Sales": 12.6
+  },
+  {
+    "id": 12,
+    "TV": 214.7,
+    "Radio": 24.0,
+    "Newspaper": 4.0,
+    "Sales": 17.4
+  },
+  {
+    "id": 13,
+    "TV": 23.8,
+    "Radio": 35.1,
+    "Newspaper": 65.9,
+    "Sales": 9.2
+  },
+  {
+    "id": 14,
+    "TV": 97.5,
+    "Radio": 7.6,
+    "Newspaper": 7.2,
+    "Sales": 13.7
+  },
+  {
+    "id": 15,
+    "TV": 204.1,
+    "Radio": 32.9,
+    "Newspaper": 46.0,
+    "Sales": 19.0
+  },
+  {
+    "id": 16,
+    "TV": 195.4,
+    "Radio": 47.7,
+    "Newspaper": 52.9,
+    "Sales": 22.4
+  },
+  {
+    "id": 17,
+    "TV": 67.8,
+    "Radio": 36.6,
+    "Newspaper": 114.0,
+    "Sales": 12.5
+  },
+  {
+    "id": 18,
+    "TV": 281.4,
+    "Radio": 39.6,
+    "Newspaper": 55.8,
+    "Sales": 24.4
+  },
+  {
+    "id": 19,
+    "TV": 69.2,
+    "Radio": 20.5,
+    "Newspaper": 18.3,
+    "Sales": 11.3
+  },
+  {
+    "id": 20,
+    "TV": 147.3,
+    "Radio": 23.9,
+    "Newspaper": 19.1,
+    "Sales": 14.6
+  },
+  {
+    "id": 21,
+    "TV": 218.4,
+    "Radio": 27.7,
+    "Newspaper": 53.4,
+    "Sales": 18.0
+  },
+  {
+    "id": 22,
+    "TV": 237.4,
+    "Radio": 5.1,
+    "Newspaper": 23.5,
+    "Sales": 17.5
+  },
+  {
+    "id": 23,
+    "TV": 13.2,
+    "Radio": 15.9,
+    "Newspaper": 49.6,
+    "Sales": 5.6
+  },
+  {
+    "id": 24,
+    "TV": 228.3,
+    "Radio": 16.9,
+    "Newspaper": 26.2,
+    "Sales": 20.5
+  },
+  {
+    "id": 25,
+    "TV": 62.3,
+    "Radio": 12.6,
+    "Newspaper": 18.3,
+    "Sales": 9.7
+  },
+  {
+    "id": 26,
+    "TV": 262.9,
+    "Radio": 3.5,
+    "Newspaper": 19.5,
+    "Sales": 17.0
+  },
+  {
+    "id": 27,
+    "TV": 142.9,
+    "Radio": 29.3,
+    "Newspaper": 12.6,
+    "Sales": 15.0
+  },
+  {
+    "id": 28,
+    "TV": 240.1,
+    "Radio": 16.7,
+    "Newspaper": 22.9,
+    "Sales": 20.9
+  },
+  {
+    "id": 29,
+    "TV": 248.8,
+    "Radio": 27.1,
+    "Newspaper": 22.9,
+    "Sales": 18.9
+  },
+  {
+    "id": 30,
+    "TV": 70.6,
+    "Radio": 16.0,
+    "Newspaper": 40.8,
+    "Sales": 10.5
+  },
+  {
+    "id": 31,
+    "TV": 292.9,
+    "Radio": 28.3,
+    "Newspaper": 43.2,
+    "Sales": 21.4
+  },
+  {
+    "id": 32,
+    "TV": 112.9,
+    "Radio": 17.4,
+    "Newspaper": 38.6,
+    "Sales": 11.9
+  },
+  {
+    "id": 33,
+    "TV": 97.2,
+    "Radio": 1.5,
+    "Newspaper": 30.0,
+    "Sales": 13.2
+  },
+  {
+    "id": 34,
+    "TV": 265.6,
+    "Radio": 20.0,
+    "Newspaper": 0.3,
+    "Sales": 17.4
+  },
+  {
+    "id": 35,
+    "TV": 95.7,
+    "Radio": 1.4,
+    "Newspaper": 7.4,
+    "Sales": 11.9
+  },
+  {
+    "id": 36,
+    "TV": 290.7,
+    "Radio": 4.1,
+    "Newspaper": 8.5,
+    "Sales": 17.8
+  },
+  {
+    "id": 37,
+    "TV": 266.9,
+    "Radio": 43.8,
+    "Newspaper": 5.0,
+    "Sales": 25.4
+  },
+  {
+    "id": 38,
+    "TV": 74.7,
+    "Radio": 49.4,
+    "Newspaper": 45.7,
+    "Sales": 14.7
+  },
+  {
+    "id": 39,
+    "TV": 43.1,
+    "Radio": 26.7,
+    "Newspaper": 35.1,
+    "Sales": 10.1
+  },
+  {
+    "id": 40,
+    "TV": 228.0,
+    "Radio": 37.7,
+    "Newspaper": 32.0,
+    "Sales": 21.5
+  },
+  {
+    "id": 41,
+    "TV": 202.5,
+    "Radio": 22.3,
+    "Newspaper": 31.6,
+    "Sales": 16.6
+  },
+  {
+    "id": 42,
+    "TV": 177.0,
+    "Radio": 33.4,
+    "Newspaper": 38.7,
+    "Sales": 17.1
+  },
+  {
+    "id": 43,
+    "TV": 293.6,
+    "Radio": 27.7,
+    "Newspaper": 1.8,
+    "Sales": 20.7
+  },
+  {
+    "id": 44,
+    "TV": 206.9,
+    "Radio": 8.4,
+    "Newspaper": 26.4,
+    "Sales": 17.9
+  },
+  {
+    "id": 45,
+    "TV": 25.1,
+    "Radio": 25.7,
+    "Newspaper": 43.3,
+    "Sales": 8.5
+  },
+  {
+    "id": 46,
+    "TV": 175.1,
+    "Radio": 22.5,
+    "Newspaper": 31.5,
+    "Sales": 16.1
+  },
+  {
+    "id": 47,
+    "TV": 89.7,
+    "Radio": 9.9,
+    "Newspaper": 35.7,
+    "Sales": 10.6
+  },
+  {
+    "id": 48,
+    "TV": 239.9,
+    "Radio": 41.5,
+    "Newspaper": 18.5,
+    "Sales": 23.2
+  },
+  {
+    "id": 49,
+    "TV": 227.2,
+    "Radio": 15.8,
+    "Newspaper": 49.9,
+    "Sales": 19.8
+  },
+  {
+    "id": 50,
+    "TV": 66.9,
+    "Radio": 11.7,
+    "Newspaper": 36.8,
+    "Sales": 9.7
+  },
+  {
+    "id": 51,
+    "TV": 199.8,
+    "Radio": 3.1,
+    "Newspaper": 34.6,
+    "Sales": 16.4
+  },
+  {
+    "id": 52,
+    "TV": 100.4,
+    "Radio": 9.6,
+    "Newspaper": 3.6,
+    "Sales": 10.7
+  },
+  {
+    "id": 53,
+    "TV": 216.4,
+    "Radio": 41.7,
+    "Newspaper": 39.6,
+    "Sales": 22.6
+  },
+  {
+    "id": 54,
+    "TV": 182.6,
+    "Radio": 46.2,
+    "Newspaper": 58.7,
+    "Sales": 21.2
+  },
+  {
+    "id": 55,
+    "TV": 262.7,
+    "Radio": 28.8,
+    "Newspaper": 15.9,
+    "Sales": 20.2
+  },
+  {
+    "id": 56,
+    "TV": 198.9,
+    "Radio": 49.4,
+    "Newspaper": 60.0,
+    "Sales": 23.7
+  },
+  {
+    "id": 57,
+    "TV": 7.3,
+    "Radio": 28.1,
+    "Newspaper": 41.4,
+    "Sales": 5.5
+  },
+  {
+    "id": 58,
+    "TV": 136.2,
+    "Radio": 19.2,
+    "Newspaper": 16.6,
+    "Sales": 13.2
+  },
+  {
+    "id": 59,
+    "TV": 210.8,
+    "Radio": 49.6,
+    "Newspaper": 37.7,
+    "Sales": 23.8
+  },
+  {
+    "id": 60,
+    "TV": 210.7,
+    "Radio": 29.5,
+    "Newspaper": 9.3,
+    "Sales": 18.4
+  },
+  {
+    "id": 61,
+    "TV": 53.5,
+    "Radio": 2.0,
+    "Newspaper": 21.4,
+    "Sales": 8.1
+  },
+  {
+    "id": 62,
+    "TV": 261.3,
+    "Radio": 42.7,
+    "Newspaper": 54.7,
+    "Sales": 24.2
+  },
+  {
+    "id": 63,
+    "TV": 239.3,
+    "Radio": 15.5,
+    "Newspaper": 27.3,
+    "Sales": 20.7
+  },
+  {
+    "id": 64,
+    "TV": 102.7,
+    "Radio": 29.6,
+    "Newspaper": 8.4,
+    "Sales": 14.0
+  },
+  {
+    "id": 65,
+    "TV": 131.1,
+    "Radio": 42.8,
+    "Newspaper": 28.9,
+    "Sales": 16.0
+  },
+  {
+    "id": 66,
+    "TV": 69.0,
+    "Radio": 9.3,
+    "Newspaper": 0.9,
+    "Sales": 11.3
+  },
+  {
+    "id": 67,
+    "TV": 31.5,
+    "Radio": 24.6,
+    "Newspaper": 2.2,
+    "Sales": 11.0
+  },
+  {
+    "id": 68,
+    "TV": 139.3,
+    "Radio": 14.5,
+    "Newspaper": 10.2,
+    "Sales": 13.4
+  },
+  {
+    "id": 69,
+    "TV": 237.4,
+    "Radio": 27.5,
+    "Newspaper": 11.0,
+    "Sales": 18.9
+  },
+  {
+    "id": 70,
+    "TV": 216.8,
+    "Radio": 43.9,
+    "Newspaper": 27.2,
+    "Sales": 22.3
+  },
+  {
+    "id": 71,
+    "TV": 199.1,
+    "Radio": 30.6,
+    "Newspaper": 38.7,
+    "Sales": 18.3
+  },
+  {
+    "id": 72,
+    "TV": 109.8,
+    "Radio": 14.3,
+    "Newspaper": 31.7,
+    "Sales": 12.4
+  },
+  {
+    "id": 73,
+    "TV": 26.8,
+    "Radio": 33.0,
+    "Newspaper": 19.3,
+    "Sales": 8.8
+  },
+  {
+    "id": 74,
+    "TV": 129.4,
+    "Radio": 5.7,
+    "Newspaper": 31.3,
+    "Sales": 11.0
+  },
+  {
+    "id": 75,
+    "TV": 213.4,
+    "Radio": 24.6,
+    "Newspaper": 13.1,
+    "Sales": 17.0
+  },
+  {
+    "id": 76,
+    "TV": 16.9,
+    "Radio": 43.7,
+    "Newspaper": 89.4,
+    "Sales": 8.7
+  },
+  {
+    "id": 77,
+    "TV": 27.5,
+    "Radio": 1.6,
+    "Newspaper": 20.7,
+    "Sales": 6.9
+  },
+  {
+    "id": 78,
+    "TV": 120.5,
+    "Radio": 28.5,
+    "Newspaper": 14.2,
+    "Sales": 14.2
+  },
+  {
+    "id": 79,
+    "TV": 5.4,
+    "Radio": 29.9,
+    "Newspaper": 9.4,
+    "Sales": 5.3
+  },
+  {
+    "id": 80,
+    "TV": 116.0,
+    "Radio": 7.7,
+    "Newspaper": 23.1,
+    "Sales": 11.0
+  },
+  {
+    "id": 81,
+    "TV": 76.4,
+    "Radio": 26.7,
+    "Newspaper": 22.3,
+    "Sales": 11.8
+  },
+  {
+    "id": 82,
+    "TV": 239.8,
+    "Radio": 4.1,
+    "Newspaper": 36.9,
+    "Sales": 17.3
+  },
+  {
+    "id": 83,
+    "TV": 75.3,
+    "Radio": 20.3,
+    "Newspaper": 32.5,
+    "Sales": 11.3
+  },
+  {
+    "id": 84,
+    "TV": 68.4,
+    "Radio": 44.5,
+    "Newspaper": 35.6,
+    "Sales": 13.6
+  },
+  {
+    "id": 85,
+    "TV": 213.5,
+    "Radio": 43.0,
+    "Newspaper": 33.8,
+    "Sales": 21.7
+  },
+  {
+    "id": 86,
+    "TV": 193.2,
+    "Radio": 18.4,
+    "Newspaper": 65.7,
+    "Sales": 20.2
+  },
+  {
+    "id": 87,
+    "TV": 76.3,
+    "Radio": 27.5,
+    "Newspaper": 16.0,
+    "Sales": 12.0
+  },
+  {
+    "id": 88,
+    "TV": 110.7,
+    "Radio": 40.6,
+    "Newspaper": 63.2,
+    "Sales": 16.0
+  },
+  {
+    "id": 89,
+    "TV": 88.3,
+    "Radio": 25.5,
+    "Newspaper": 73.4,
+    "Sales": 12.9
+  },
+  {
+    "id": 90,
+    "TV": 109.8,
+    "Radio": 47.8,
+    "Newspaper": 51.4,
+    "Sales": 16.7
+  },
+  {
+    "id": 91,
+    "TV": 134.3,
+    "Radio": 4.9,
+    "Newspaper": 9.3,
+    "Sales": 14.0
+  },
+  {
+    "id": 92,
+    "TV": 28.6,
+    "Radio": 1.5,
+    "Newspaper": 33.0,
+    "Sales": 7.3
+  },
+  {
+    "id": 93,
+    "TV": 217.7,
+    "Radio": 33.5,
+    "Newspaper": 59.0,
+    "Sales": 19.4
+  },
+  {
+    "id": 94,
+    "TV": 250.9,
+    "Radio": 36.5,
+    "Newspaper": 72.3,
+    "Sales": 22.2
+  },
+  {
+    "id": 95,
+    "TV": 107.4,
+    "Radio": 14.0,
+    "Newspaper": 10.9,
+    "Sales": 11.5
+  },
+  {
+    "id": 96,
+    "TV": 163.3,
+    "Radio": 31.6,
+    "Newspaper": 52.9,
+    "Sales": 16.9
+  },
+  {
+    "id": 97,
+    "TV": 197.6,
+    "Radio": 3.5,
+    "Newspaper": 5.9,
+    "Sales": 16.7
+  },
+  {
+    "id": 98,
+    "TV": 184.9,
+    "Radio": 21.0,
+    "Newspaper": 22.0,
+    "Sales": 20.5
+  },
+  {
+    "id": 99,
+    "TV": 289.7,
+    "Radio": 42.3,
+    "Newspaper": 51.2,
+    "Sales": 25.4
+  },
+  {
+    "id": 100,
+    "TV": 135.2,
+    "Radio": 41.7,
+    "Newspaper": 45.9,
+    "Sales": 17.2
+  },
+  {
+    "id": 101,
+    "TV": 222.4,
+    "Radio": 4.3,
+    "Newspaper": 49.8,
+    "Sales": 16.7
+  },
+  {
+    "id": 102,
+    "TV": 296.4,
+    "Radio": 36.3,
+    "Newspaper": 100.9,
+    "Sales": 23.8
+  },
+  {
+    "id": 103,
+    "TV": 280.2,
+    "Radio": 10.1,
+    "Newspaper": 21.4,
+    "Sales": 19.8
+  },
+  {
+    "id": 104,
+    "TV": 187.9,
+    "Radio": 17.2,
+    "Newspaper": 17.9,
+    "Sales": 19.7
+  },
+  {
+    "id": 105,
+    "TV": 238.2,
+    "Radio": 34.3,
+    "Newspaper": 5.3,
+    "Sales": 20.7
+  },
+  {
+    "id": 106,
+    "TV": 137.9,
+    "Radio": 46.4,
+    "Newspaper": 59.0,
+    "Sales": 15.0
+  },
+  {
+    "id": 107,
+    "TV": 25.0,
+    "Radio": 11.0,
+    "Newspaper": 29.7,
+    "Sales": 7.2
+  },
+  {
+    "id": 108,
+    "TV": 90.4,
+    "Radio": 0.3,
+    "Newspaper": 23.2,
+    "Sales": 12.0
+  },
+  {
+    "id": 109,
+    "TV": 13.1,
+    "Radio": 0.4,
+    "Newspaper": 25.6,
+    "Sales": 5.3
+  },
+  {
+    "id": 110,
+    "TV": 255.4,
+    "Radio": 26.9,
+    "Newspaper": 5.5,
+    "Sales": 19.8
+  },
+  {
+    "id": 111,
+    "TV": 225.8,
+    "Radio": 8.2,
+    "Newspaper": 56.5,
+    "Sales": 18.4
+  },
+  {
+    "id": 112,
+    "TV": 241.7,
+    "Radio": 38.0,
+    "Newspaper": 23.2,
+    "Sales": 21.8
+  },
+  {
+    "id": 113,
+    "TV": 175.7,
+    "Radio": 15.4,
+    "Newspaper": 2.4,
+    "Sales": 17.1
+  },
+  {
+    "id": 114,
+    "TV": 209.6,
+    "Radio": 20.6,
+    "Newspaper": 10.7,
+    "Sales": 20.9
+  },
+  {
+    "id": 115,
+    "TV": 78.2,
+    "Radio": 46.8,
+    "Newspaper": 34.5,
+    "Sales": 14.6
+  },
+  {
+    "id": 116,
+    "TV": 75.1,
+    "Radio": 35.0,
+    "Newspaper": 52.7,
+    "Sales": 12.6
+  },
+  {
+    "id": 117,
+    "TV": 139.2,
+    "Radio": 14.3,
+    "Newspaper": 25.6,
+    "Sales": 12.2
+  },
+  {
+    "id": 118,
+    "TV": 76.4,
+    "Radio": 0.8,
+    "Newspaper": 14.8,
+    "Sales": 9.4
+  },
+  {
+    "id": 119,
+    "TV": 125.7,
+    "Radio": 36.9,
+    "Newspaper": 79.2,
+    "Sales": 15.9
+  },
+  {
+    "id": 120,
+    "TV": 19.4,
+    "Radio": 16.0,
+    "Newspaper": 22.3,
+    "Sales": 6.6
+  },
+  {
+    "id": 121,
+    "TV": 141.3,
+    "Radio": 26.8,
+    "Newspaper": 46.2,
+    "Sales": 15.5
+  },
+  {
+    "id": 122,
+    "TV": 18.8,
+    "Radio": 21.7,
+    "Newspaper": 50.4,
+    "Sales": 7.0
+  },
+  {
+    "id": 123,
+    "TV": 224.0,
+    "Radio": 2.4,
+    "Newspaper": 15.6,
+    "Sales": 16.6
+  },
+  {
+    "id": 124,
+    "TV": 123.1,
+    "Radio": 34.6,
+    "Newspaper": 12.4,
+    "Sales": 15.2
+  },
+  {
+    "id": 125,
+    "TV": 229.5,
+    "Radio": 32.3,
+    "Newspaper": 74.2,
+    "Sales": 19.7
+  },
+  {
+    "id": 126,
+    "TV": 87.2,
+    "Radio": 11.8,
+    "Newspaper": 25.9,
+    "Sales": 10.6
+  },
+  {
+    "id": 127,
+    "TV": 7.8,
+    "Radio": 38.9,
+    "Newspaper": 50.6,
+    "Sales": 6.6
+  },
+  {
+    "id": 128,
+    "TV": 80.2,
+    "Radio": 0.0,
+    "Newspaper": 9.2,
+    "Sales": 11.9
+  },
+  {
+    "id": 129,
+    "TV": 220.3,
+    "Radio": 49.0,
+    "Newspaper": 3.2,
+    "Sales": 24.7
+  },
+  {
+    "id": 130,
+    "TV": 59.6,
+    "Radio": 12.0,
+    "Newspaper": 43.1,
+    "Sales": 9.7
+  },
+  {
+    "id": 131,
+    "TV": 0.7,
+    "Radio": 39.6,
+    "Newspaper": 8.7,
+    "Sales": 1.6
+  },
+  {
+    "id": 132,
+    "TV": 265.2,
+    "Radio": 2.9,
+    "Newspaper": 43.0,
+    "Sales": 17.7
+  },
+  {
+    "id": 133,
+    "TV": 8.4,
+    "Radio": 27.2,
+    "Newspaper": 2.1,
+    "Sales": 5.7
+  },
+  {
+    "id": 134,
+    "TV": 219.8,
+    "Radio": 33.5,
+    "Newspaper": 45.1,
+    "Sales": 19.6
+  },
+  {
+    "id": 135,
+    "TV": 36.9,
+    "Radio": 38.6,
+    "Newspaper": 65.6,
+    "Sales": 10.8
+  },
+  {
+    "id": 136,
+    "TV": 48.3,
+    "Radio": 47.0,
+    "Newspaper": 8.5,
+    "Sales": 11.6
+  },
+  {
+    "id": 137,
+    "TV": 25.6,
+    "Radio": 39.0,
+    "Newspaper": 9.3,
+    "Sales": 9.5
+  },
+  {
+    "id": 138,
+    "TV": 273.7,
+    "Radio": 28.9,
+    "Newspaper": 59.7,
+    "Sales": 20.8
+  },
+  {
+    "id": 139,
+    "TV": 43.0,
+    "Radio": 25.9,
+    "Newspaper": 20.5,
+    "Sales": 9.6
+  },
+  {
+    "id": 140,
+    "TV": 184.9,
+    "Radio": 43.9,
+    "Newspaper": 1.7,
+    "Sales": 20.7
+  },
+  {
+    "id": 141,
+    "TV": 73.4,
+    "Radio": 17.0,
+    "Newspaper": 12.9,
+    "Sales": 10.9
+  },
+  {
+    "id": 142,
+    "TV": 193.7,
+    "Radio": 35.4,
+    "Newspaper": 75.6,
+    "Sales": 19.2
+  },
+  {
+    "id": 143,
+    "TV": 220.5,
+    "Radio": 33.2,
+    "Newspaper": 37.9,
+    "Sales": 20.1
+  },
+  {
+    "id": 144,
+    "TV": 104.6,
+    "Radio": 5.7,
+    "Newspaper": 34.4,
+    "Sales": 10.4
+  },
+  {
+    "id": 145,
+    "TV": 96.2,
+    "Radio": 14.8,
+    "Newspaper": 38.9,
+    "Sales": 12.3
+  },
+  {
+    "id": 146,
+    "TV": 140.3,
+    "Radio": 1.9,
+    "Newspaper": 9.0,
+    "Sales": 10.3
+  },
+  {
+    "id": 147,
+    "TV": 240.1,
+    "Radio": 7.3,
+    "Newspaper": 8.7,
+    "Sales": 18.2
+  },
+  {
+    "id": 148,
+    "TV": 243.2,
+    "Radio": 49.0,
+    "Newspaper": 44.3,
+    "Sales": 25.4
+  },
+  {
+    "id": 149,
+    "TV": 38.0,
+    "Radio": 40.3,
+    "Newspaper": 11.9,
+    "Sales": 10.9
+  },
+  {
+    "id": 150,
+    "TV": 44.7,
+    "Radio": 25.8,
+    "Newspaper": 20.6,
+    "Sales": 10.1
+  },
+  {
+    "id": 151,
+    "TV": 280.7,
+    "Radio": 13.9,
+    "Newspaper": 37.0,
+    "Sales": 16.1
+  },
+  {
+    "id": 152,
+    "TV": 121.0,
+    "Radio": 8.4,
+    "Newspaper": 48.7,
+    "Sales": 11.6
+  },
+  {
+    "id": 153,
+    "TV": 197.6,
+    "Radio": 23.3,
+    "Newspaper": 14.2,
+    "Sales": 16.6
+  },
+  {
+    "id": 154,
+    "TV": 171.3,
+    "Radio": 39.7,
+    "Newspaper": 37.7,
+    "Sales": 16.0
+  },
+  {
+    "id": 155,
+    "TV": 187.8,
+    "Radio": 21.1,
+    "Newspaper": 9.5,
+    "Sales": 20.6
+  },
+  {
+    "id": 156,
+    "TV": 4.1,
+    "Radio": 11.6,
+    "Newspaper": 5.7,
+    "Sales": 3.2
+  },
+  {
+    "id": 157,
+    "TV": 93.9,
+    "Radio": 43.5,
+    "Newspaper": 50.5,
+    "Sales": 15.3
+  },
+  {
+    "id": 158,
+    "TV": 149.8,
+    "Radio": 1.3,
+    "Newspaper": 24.3,
+    "Sales": 10.1
+  },
+  {
+    "id": 159,
+    "TV": 11.7,
+    "Radio": 36.9,
+    "Newspaper": 45.2,
+    "Sales": 7.3
+  },
+  {
+    "id": 160,
+    "TV": 131.7,
+    "Radio": 18.4,
+    "Newspaper": 34.6,
+    "Sales": 12.9
+  },
+  {
+    "id": 161,
+    "TV": 172.5,
+    "Radio": 18.1,
+    "Newspaper": 30.7,
+    "Sales": 16.4
+  },
+  {
+    "id": 162,
+    "TV": 85.7,
+    "Radio": 35.8,
+    "Newspaper": 49.3,
+    "Sales": 13.3
+  },
+  {
+    "id": 163,
+    "TV": 188.4,
+    "Radio": 18.1,
+    "Newspaper": 25.6,
+    "Sales": 19.9
+  },
+  {
+    "id": 164,
+    "TV": 163.5,
+    "Radio": 36.8,
+    "Newspaper": 7.4,
+    "Sales": 18.0
+  },
+  {
+    "id": 165,
+    "TV": 117.2,
+    "Radio": 14.7,
+    "Newspaper": 5.4,
+    "Sales": 11.9
+  },
+  {
+    "id": 166,
+    "TV": 234.5,
+    "Radio": 3.4,
+    "Newspaper": 84.8,
+    "Sales": 16.9
+  },
+  {
+    "id": 167,
+    "TV": 17.9,
+    "Radio": 37.6,
+    "Newspaper": 21.6,
+    "Sales": 8.0
+  },
+  {
+    "id": 168,
+    "TV": 206.8,
+    "Radio": 5.2,
+    "Newspaper": 19.4,
+    "Sales": 17.2
+  },
+  {
+    "id": 169,
+    "TV": 215.4,
+    "Radio": 23.6,
+    "Newspaper": 57.6,
+    "Sales": 17.1
+  },
+  {
+    "id": 170,
+    "TV": 284.3,
+    "Radio": 10.6,
+    "Newspaper": 6.4,
+    "Sales": 20.0
+  },
+  {
+    "id": 171,
+    "TV": 50.0,
+    "Radio": 11.6,
+    "Newspaper": 18.4,
+    "Sales": 8.4
+  },
+  {
+    "id": 172,
+    "TV": 164.5,
+    "Radio": 20.9,
+    "Newspaper": 47.4,
+    "Sales": 17.5
+  },
+  {
+    "id": 173,
+    "TV": 19.6,
+    "Radio": 20.1,
+    "Newspaper": 17.0,
+    "Sales": 7.6
+  },
+  {
+    "id": 174,
+    "TV": 168.4,
+    "Radio": 7.1,
+    "Newspaper": 12.8,
+    "Sales": 16.7
+  },
+  {
+    "id": 175,
+    "TV": 222.4,
+    "Radio": 3.4,
+    "Newspaper": 13.1,
+    "Sales": 16.5
+  },
+  {
+    "id": 176,
+    "TV": 276.9,
+    "Radio": 48.9,
+    "Newspaper": 41.8,
+    "Sales": 27.0
+  },
+  {
+    "id": 177,
+    "TV": 248.4,
+    "Radio": 30.2,
+    "Newspaper": 20.3,
+    "Sales": 20.2
+  },
+  {
+    "id": 178,
+    "TV": 170.2,
+    "Radio": 7.8,
+    "Newspaper": 35.2,
+    "Sales": 16.7
+  },
+  {
+    "id": 179,
+    "TV": 276.7,
+    "Radio": 2.3,
+    "Newspaper": 23.7,
+    "Sales": 16.8
+  },
+  {
+    "id": 180,
+    "TV": 165.6,
+    "Radio": 10.0,
+    "Newspaper": 17.6,
+    "Sales": 17.6
+  },
+  {
+    "id": 181,
+    "TV": 156.6,
+    "Radio": 2.6,
+    "Newspaper": 8.3,
+    "Sales": 15.5
+  },
+  {
+    "id": 182,
+    "TV": 218.5,
+    "Radio": 5.4,
+    "Newspaper": 27.4,
+    "Sales": 17.2
+  },
+  {
+    "id": 183,
+    "TV": 56.2,
+    "Radio": 5.7,
+    "Newspaper": 29.7,
+    "Sales": 8.7
+  },
+  {
+    "id": 184,
+    "TV": 287.6,
+    "Radio": 43.0,
+    "Newspaper": 71.8,
+    "Sales": 26.2
+  },
+  {
+    "id": 185,
+    "TV": 253.8,
+    "Radio": 21.3,
+    "Newspaper": 30.0,
+    "Sales": 17.6
+  },
+  {
+    "id": 186,
+    "TV": 205.0,
+    "Radio": 45.1,
+    "Newspaper": 19.6,
+    "Sales": 22.6
+  },
+  {
+    "id": 187,
+    "TV": 139.5,
+    "Radio": 2.1,
+    "Newspaper": 26.6,
+    "Sales": 10.3
+  },
+  {
+    "id": 188,
+    "TV": 191.1,
+    "Radio": 28.7,
+    "Newspaper": 18.2,
+    "Sales": 17.3
+  },
+  {
+    "id": 189,
+    "TV": 286.0,
+    "Radio": 13.9,
+    "Newspaper": 3.7,
+    "Sales": 20.9
+  },
+  {
+    "id": 190,
+    "TV": 18.7,
+    "Radio": 12.1,
+    "Newspaper": 23.4,
+    "Sales": 6.7
+  },
+  {
+    "id": 191,
+    "TV": 39.5,
+    "Radio": 41.1,
+    "Newspaper": 5.8,
+    "Sales": 10.8
+  },
+  {
+    "id": 192,
+    "TV": 75.5,
+    "Radio": 10.8,
+    "Newspaper": 6.0,
+    "Sales": 11.9
+  },
+  {
+    "id": 193,
+    "TV": 17.2,
+    "Radio": 4.1,
+    "Newspaper": 31.6,
+    "Sales": 5.9
+  },
+  {
+    "id": 194,
+    "TV": 166.8,
+    "Radio": 42.0,
+    "Newspaper": 3.6,
+    "Sales": 19.6
+  },
+  {
+    "id": 195,
+    "TV": 149.7,
+    "Radio": 35.6,
+    "Newspaper": 6.0,
+    "Sales": 17.3
+  },
+  {
+    "id": 196,
+    "TV": 38.2,
+    "Radio": 3.7,
+    "Newspaper": 13.8,
+    "Sales": 7.6
+  },
+  {
+    "id": 197,
+    "TV": 94.2,
+    "Radio": 4.9,
+    "Newspaper": 8.1,
+    "Sales": 14.0
+  },
+  {
+    "id": 198,
+    "TV": 177.0,
+    "Radio": 9.3,
+    "Newspaper": 6.4,
+    "Sales": 14.8
+  },
+  {
+    "id": 199,
+    "TV": 283.6,
+    "Radio": 42.0,
+    "Newspaper": 66.2,
+    "Sales": 25.5
+  },
+  {
+    "id": 200,
+    "TV": 232.1,
+    "Radio": 8.6,
+    "Newspaper": 8.7,
+    "Sales": 18.4
+  }
+];

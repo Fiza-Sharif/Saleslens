@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SalesLens - Prediction</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#c3c6d7",
+                        "tertiary": "#4d5d73",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "inverse-surface": "#2d3133",
+                        "surface-container-high": "#e6e8ea",
+                        "outline": "#737686",
+                        "on-primary-container": "#fefcff",
+                        "surface-bright": "#f7f9fb",
+                        "primary-container": "#326cef",
+                        "on-background": "#191c1e",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#191c1e",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#3c475a",
+                        "on-primary-fixed-variant": "#003ea6",
+                        "secondary-fixed": "#d8e3fb",
+                        "inverse-primary": "#b3c5ff",
+                        "surface-dim": "#d8dadc",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#0254d7",
+                        "secondary-container": "#d5e0f8",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "on-secondary-container": "#586377",
+                        "primary": "#0052d3",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#111c2d",
+                        "on-tertiary-container": "#fdfcff",
+                        "on-surface-variant": "#434654",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#d3e4fe",
+                        "tertiary-container": "#66768d",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "secondary-fixed-dim": "#bcc7de",
+                        "secondary": "#545f73",
+                        "on-primary-fixed": "#00184a",
+                        "surface": "#f7f9fb",
+                        "surface-container-highest": "#e0e3e5",
+                        "primary-fixed": "#dbe1ff",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "background": "#f7f9fb",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-low": "#f2f4f6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "margin-desktop": "48px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["JetBrains Mono"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .range-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 4px;
+            background: #e2e8f0;
+            border-radius: 2px;
+            outline: none;
+        }
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #3B73F6;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+        .range-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+        .chart-conic {
+            background: conic-gradient(
+                #3B73F6 0% 55%, 
+                #818CF8 55% 85%, 
+                #C7D2FE 85% 100%
+            );
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md antialiased overflow-x-hidden">
+<!-- Top Navigation -->
+<nav class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-margin-desktop h-16 bg-surface/80 backdrop-blur-md border-b border-outline-variant shadow-sm transition-all duration-200">
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-2 text-headline-md font-headline-md font-bold text-primary tracking-tight" href="#">
+<img alt="SalesLens Logo" class="h-8 w-auto rounded-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1oW8BlgmGLhUKnHkro9dolB9w-S6LR46aLR-ZM_3nJ--_fMABEXlyE3xYlj8lOeoXbqOxkFFi0Mb-BMaY4ZWPtBKY-qaW0BpZWASphlg-WB1TIlZBWUXZl1y0DV_RmydHVlCVCY3cSQrMV36nL5jRjF5jyJWka23CklVzkKNPgmC0PK_V3sKWFsnt_vadj8j4VYkGo81Ycx_gu7FXwyhcKZbc06Xy6tSHa_bz2Hctl8JjwAgGu4TBfkf7fPHvmE-QhUg"/>
+<span>SalesLens</span>
+</a>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-secondary hover:text-primary transition-colors font-label-sm text-label-sm" href="#">Home</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-sm text-label-sm" href="#">Prediction</a>
+<a class="text-secondary hover:text-primary transition-colors font-label-sm text-label-sm" href="#">Analytics</a>
+<a class="text-secondary hover:text-primary transition-colors font-label-sm text-label-sm" href="#">Dataset</a>
+<a class="text-secondary hover:text-primary transition-colors font-label-sm text-label-sm" href="#">Model</a>
+<a class="text-secondary hover:text-primary transition-colors font-label-sm text-label-sm" href="#">About</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-all duration-200 text-secondary">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-all duration-200 text-secondary">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<img alt="User profile" class="w-8 h-8 rounded-full border border-outline-variant object-cover" data-alt="A small circular profile picture of a professional individual in a corporate setting. Light background, crisp lighting, modern minimalist style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCP0Xkm18FeWSsA4G0mKPxaU3fW-7rhiiVrH8_mQ7q7s4LKscX9tp9Bo-LKw1gu0y6sl9W1eVyYAYGKAI6nXdkQdfkxITrTRFozc7smC_XMNjr98HPoupQxkd8wNK9sb8q-CG_QMHXdtCqw-v9yREdSD-m-latDZDrCHyY1r5to9f9amEZOKrp-3fmxcwicKFgV-eNVQRvNHraxkkqXjNSREaXgmwyh1A4em8cdi2bQka6VBPbQsl5cwA"/>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+<header class="mb-12">
+<h1 class="font-display-lg text-display-lg text-on-surface mb-2">Revenue Forecasting</h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-2xl">Adjust channel investments to simulate expected unit sales. Models update in real-time based on historical regression data.</p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Input Panel (Left) -->
+<div class="lg:col-span-7 space-y-6">
+<div class="bg-surface-container-lowest rounded-xl p-8 border border-outline-variant shadow-sm hover:-translate-y-[2px] hover:shadow-md transition-all duration-300">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6 border-b border-surface-variant pb-4">Budget Allocation Parameters</h2>
+<div class="space-y-8">
+<!-- TV Slider -->
+<div class="group">
+<div class="flex justify-between items-center mb-2">
+<label class="font-label-sm text-label-sm text-secondary flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">tv</span>
+                                    TV Budget ($K)
+                                </label>
+<span class="font-body-md text-primary font-semibold" id="tv-val">150</span>
+</div>
+<input class="range-slider w-full" id="tv-slider" max="300" min="0" type="range" value="150"/>
+</div>
+<!-- Radio Slider -->
+<div class="group">
+<div class="flex justify-between items-center mb-2">
+<label class="font-label-sm text-label-sm text-secondary flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">radio</span>
+                                    Radio Budget ($K)
+                                </label>
+<span class="font-body-md text-primary font-semibold" id="radio-val">25</span>
+</div>
+<input class="range-slider w-full" id="radio-slider" max="50" min="0" type="range" value="25"/>
+</div>
+<!-- Newspaper Slider -->
+<div class="group">
+<div class="flex justify-between items-center mb-2">
+<label class="font-label-sm text-label-sm text-secondary flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">newspaper</span>
+                                    Newspaper Budget ($K)
+                                </label>
+<span class="font-body-md text-primary font-semibold" id="news-val">60</span>
+</div>
+<input class="range-slider w-full" id="news-slider" max="120" min="0" type="range" value="60"/>
+</div>
+</div>
+<div class="mt-10 pt-6 border-t border-surface-variant">
+<button class="w-full bg-[#3B73F6] hover:bg-[#2563EB] text-on-primary font-body-md font-semibold py-4 px-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">auto_awesome</span>
+                            Predict Sales
+                        </button>
+</div>
+</div>
+</div>
+<!-- Results Panel (Right) -->
+<div class="lg:col-span-5 space-y-6">
+<!-- Primary Result Card -->
+<div class="bg-surface-container-lowest rounded-xl p-8 border border-outline-variant shadow-sm relative overflow-hidden group hover:-translate-y-[2px] hover:shadow-md transition-all duration-300">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-primary">monitoring</span>
+</div>
+<h3 class="font-label-sm text-label-sm text-secondary uppercase tracking-wider mb-2">Predicted Outcome</h3>
+<div class="flex items-end gap-3 mb-4">
+<span class="font-display-lg text-display-lg text-on-surface">18.74</span>
+<span class="font-body-lg text-body-lg text-secondary mb-2">Units</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-3 py-1 font-label-sm text-[10px]">
+<span class="material-symbols-outlined text-[12px] mr-1">trending_up</span>
+                            +4.2% Expected Growth
+                        </span>
+</div>
+</div>
+<!-- Distribution Chart Card -->
+<div class="bg-surface-container-lowest rounded-xl p-8 border border-outline-variant shadow-sm hover:-translate-y-[2px] hover:shadow-md transition-all duration-300">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6 border-b border-surface-variant pb-4">Budget Distribution</h3>
+<div class="flex flex-col items-center justify-center">
+<div class="relative w-48 h-48 mb-6">
+<div class="w-full h-full chart-conic"></div>
+<div class="absolute inset-4 bg-surface-container-lowest rounded-full flex items-center justify-center">
+<div class="text-center">
+<span class="block font-label-sm text-label-sm text-secondary">Total</span>
+<span class="block font-headline-md text-headline-md text-on-surface font-bold">$235K</span>
+</div>
+</div>
+</div>
+<div class="w-full space-y-3">
+<div class="flex justify-between items-center text-sm">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-[#3B73F6]"></div>
+<span class="font-body-md text-secondary">TV</span>
+</div>
+<span class="font-label-sm text-on-surface font-medium">63.8%</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-[#818CF8]"></div>
+<span class="font-body-md text-secondary">Newspaper</span>
+</div>
+<span class="font-label-sm text-on-surface font-medium">25.5%</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-[#C7D2FE]"></div>
+<span class="font-body-md text-secondary">Radio</span>
+</div>
+<span class="font-label-sm text-on-surface font-medium">10.6%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Simple vanilla JS for slider updates
+        const sliders = ['tv', 'radio', 'news'];
+        sliders.forEach(id => {
+            const slider = document.getElementById(`${id}-slider`);
+            const valDisplay = document.getElementById(`${id}-val`);
+            if (slider && valDisplay) {
+                slider.addEventListener('input', (e) => {
+                    valDisplay.textContent = e.target.value;
+                });
+            }
+        });
+    </script>
+</body></html>

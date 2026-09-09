@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Model Configuration &amp; Performance - SalesLens</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "surface-dim": "#d8dadc",
+                        "secondary": "#545f73",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e0e3e5",
+                        "on-secondary-fixed-variant": "#3c475a",
+                        "tertiary-container": "#66768d",
+                        "on-secondary-fixed": "#111c2d",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "inverse-primary": "#b3c5ff",
+                        "outline": "#737686",
+                        "primary-container": "#326cef",
+                        "surface": "#f7f9fb",
+                        "surface-tint": "#0254d7",
+                        "primary-fixed": "#dbe1ff",
+                        "outline-variant": "#c3c6d7",
+                        "tertiary": "#4d5d73",
+                        "on-primary-container": "#fefcff",
+                        "on-surface-variant": "#434654",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container": "#eceef0",
+                        "tertiary-fixed": "#d3e4fe",
+                        "on-primary-fixed": "#00184a",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "inverse-surface": "#2d3133",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#e6e8ea",
+                        "primary": "#0052d3",
+                        "on-surface": "#191c1e",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f7f9fb",
+                        "secondary-fixed": "#d8e3fb",
+                        "secondary-fixed-dim": "#bcc7de",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "on-tertiary-container": "#fdfcff",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "background": "#f7f9fb",
+                        "on-secondary-container": "#586377",
+                        "secondary-container": "#d5e0f8",
+                        "on-primary-fixed-variant": "#003ea6",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "48px",
+                        "unit": "8px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-sm": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Base styles mapped from JSON and guidance */
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        
+        .card-elevation {
+            border: 1px solid theme('colors.surface-variant');
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+        }
+        
+        .card-elevation:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            transition: all 0.2s ease-in-out;
+        }
+        
+        /* Flow Diagram Path Animations */
+        .flow-path {
+            stroke-dasharray: 100;
+            animation: dash 20s linear infinite;
+        }
+        @keyframes dash {
+            to { stroke-dashoffset: -1000; }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-margin-desktop h-16 bg-surface/80 backdrop-blur-md border-b border-outline-variant">
+<!-- Brand / Logo -->
+<div class="flex items-center gap-4">
+<img alt="SalesLens Logo" class="h-8 w-auto rounded-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6xv5M6n5MoKOB7J2DOXIQx0V9OY-UaChjBZ0r1bWfBL0r3X2D7Mzc-YIpG254Kbtc65YByykqMmOC8FW-rUjYptGUCMF_lqSqza-Gs7ewM6JYNInWERRfcwtDgPal-VK2vBm-mqKMdxu_w85LHZEuraqTMIpmplUd8_ouTTSUlLrnaVfrJHAWDQ6a9-EqOZebkz3TtNsYjHNY1NmL9aOAjQZOUkR3k4vDEn8-IFkeKISEYokQiKb74qdOtnDUZnaM-pg"/>
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">SalesLens</span>
+</div>
+<!-- Navigation Links (Desktop) -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-secondary hover:text-primary transition-colors font-label-sm text-label-sm" href="#">Home</a>
+<a class="text-secondary hover:text-primary transition-colors font-label-sm text-label-sm" href="#">Prediction</a>
+<a class="text-secondary hover:text-primary transition-colors font-label-sm text-label-sm" href="#">Analytics</a>
+<a class="text-secondary hover:text-primary transition-colors font-label-sm text-label-sm" href="#">Dataset</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-sm text-label-sm hover:bg-surface-container-low transition-all duration-200" href="#">Model</a>
+<a class="text-secondary hover:text-primary transition-colors font-label-sm text-label-sm" href="#">About</a>
+</nav>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-4">
+<button class="text-secondary hover:text-primary transition-colors hover:bg-surface-container-low p-2 rounded-full active:scale-95 opacity-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dark_mode</span>
+</button>
+<button class="text-secondary hover:text-primary transition-colors hover:bg-surface-container-low p-2 rounded-full active:scale-95 opacity-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+</button>
+<img class="h-8 w-8 rounded-full border border-outline-variant object-cover ml-2" data-alt="A professional headshot of a corporate data analyst in a brightly lit modern office setting, wearing a dark blue blazer. The image has a clean, high-contrast aesthetic suitable for a modern SaaS dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAl0c4MnRZ-ebrI37MjOvpxHCsu02_EzksGHTMeUoCDGZuX9Kj0y2yKAY-5M-az1ohETRvW9B4ji9vYxoFG-iGjGTUEv5MSoT5ORL1-iOvMJle3YTBRlqaYLbtSCeqXoo54kPF9v4NVQmTJ2qsdW-iWc6Eete9KYQHrMRw4S_O38PfxqskdR-85e38HCL6bYnxvK2aYBfI04kJ3SZdAO9L0SPgxx2gnb0mQhEJVg3tiAur6qiCXO95pw"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-32 pb-24 px-margin-desktop max-w-container-max mx-auto w-full grid grid-cols-12 gap-gutter">
+<!-- Page Header -->
+<div class="col-span-12 mb-12">
+<h1 class="font-display-lg text-display-lg text-on-surface mb-4">Model Configuration &amp; Performance</h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-3xl">
+                A detailed breakdown of the underlying machine learning architecture powering your sales predictions. We utilize a highly tuned Polynomial Regression engine to capture complex, non-linear market dynamics.
+            </p>
+</div>
+<!-- Metrics Bento Row -->
+<section class="col-span-12 grid grid-cols-1 md:grid-cols-4 gap-gutter mb-16">
+<!-- Metric 1 -->
+<div class="bg-surface-container-lowest rounded-2xl p-8 card-elevation flex flex-col justify-between h-full">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">R² Score</span>
+<span class="material-symbols-outlined text-primary">analytics</span>
+</div>
+<div>
+<div class="font-display-lg-mobile text-display-lg-mobile text-on-surface">0.897</div>
+<div class="flex items-center gap-2 mt-2">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-fixed text-on-primary-fixed-variant">
+                            Excellent Fit
+                        </span>
+</div>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="bg-surface-container-lowest rounded-2xl p-8 card-elevation flex flex-col justify-between h-full">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">MAE</span>
+<span class="material-symbols-outlined text-tertiary">straighten</span>
+</div>
+<div>
+<div class="font-display-lg-mobile text-display-lg-mobile text-on-surface">1.213</div>
+<p class="font-body-md text-body-md text-secondary mt-1">Mean Absolute Error</p>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="bg-surface-container-lowest rounded-2xl p-8 card-elevation flex flex-col justify-between h-full">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">RMSE</span>
+<span class="material-symbols-outlined text-tertiary">square_foot</span>
+</div>
+<div>
+<div class="font-display-lg-mobile text-display-lg-mobile text-on-surface">1.578</div>
+<p class="font-body-md text-body-md text-secondary mt-1">Root Mean Squared Error</p>
+</div>
+</div>
+<!-- Metric 4 -->
+<div class="bg-surface-container-lowest rounded-2xl p-8 card-elevation flex flex-col justify-between h-full">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">MSE</span>
+<span class="material-symbols-outlined text-tertiary">calculate</span>
+</div>
+<div>
+<div class="font-display-lg-mobile text-display-lg-mobile text-on-surface">2.489</div>
+<p class="font-body-md text-body-md text-secondary mt-1">Mean Squared Error</p>
+</div>
+</div>
+</section>
+<!-- Architecture Flow Diagram -->
+<section class="col-span-12 lg:col-span-8 bg-surface-container-lowest rounded-2xl p-8 card-elevation flex flex-col mb-16 relative overflow-hidden group">
+<!-- Background subtle pattern -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#0052d3 1px, transparent 1px); background-size: 24px 24px;"></div>
+<div class="border-b border-surface-variant pb-4 mb-8 flex justify-between items-end relative z-10">
+<h2 class="font-headline-md text-headline-md text-on-surface">Pipeline Architecture</h2>
+<span class="font-label-sm text-label-sm text-primary px-3 py-1 bg-primary-fixed rounded-full">Degree 2 Polynomial</span>
+</div>
+<div class="flex-grow flex items-center justify-center py-8 relative z-10">
+<div class="flex flex-col md:flex-row items-center gap-4 w-full">
+<!-- Input Node -->
+<div class="flex-1 bg-surface-container p-6 rounded-xl border border-outline-variant text-center relative z-20 shadow-sm">
+<span class="material-symbols-outlined text-secondary mb-2" style="font-size: 32px;">dataset</span>
+<h3 class="font-body-md text-body-md font-semibold text-on-surface">Advertising Data</h3>
+<p class="font-label-sm text-label-sm text-secondary mt-1">Raw Features</p>
+</div>
+<!-- Connection -->
+<div class="hidden md:flex flex-col items-center px-2">
+<span class="material-symbols-outlined text-primary animate-pulse">arrow_forward</span>
+</div>
+<!-- Transform Node -->
+<div class="flex-1 bg-primary-container p-6 rounded-xl border border-primary text-center relative z-20 shadow-md">
+<span class="material-symbols-outlined text-on-primary-container mb-2" style="font-size: 32px;">transform</span>
+<h3 class="font-body-md text-body-md font-semibold text-on-primary-container">Feature Transformation</h3>
+<p class="font-label-sm text-label-sm text-on-primary-container opacity-80 mt-1">Degree 2</p>
+</div>
+<!-- Connection -->
+<div class="hidden md:flex flex-col items-center px-2">
+<span class="material-symbols-outlined text-primary animate-pulse" style="animation-delay: 0.5s;">arrow_forward</span>
+</div>
+<!-- Model Node -->
+<div class="flex-1 bg-surface-container p-6 rounded-xl border border-outline-variant text-center relative z-20 shadow-sm">
+<span class="material-symbols-outlined text-secondary mb-2" style="font-size: 32px;">model_training</span>
+<h3 class="font-body-md text-body-md font-semibold text-on-surface">Polynomial Regression</h3>
+<p class="font-label-sm text-label-sm text-secondary mt-1">Core Engine</p>
+</div>
+<!-- Connection -->
+<div class="hidden md:flex flex-col items-center px-2">
+<span class="material-symbols-outlined text-primary animate-pulse" style="animation-delay: 1s;">arrow_forward</span>
+</div>
+<!-- Output Node -->
+<div class="flex-1 bg-surface-container p-6 rounded-xl border border-outline-variant text-center relative z-20 shadow-sm border-l-4 border-l-primary">
+<span class="material-symbols-outlined text-primary mb-2" style="font-size: 32px;">trending_up</span>
+<h3 class="font-body-md text-body-md font-semibold text-on-surface">Sales Prediction</h3>
+<p class="font-label-sm text-label-sm text-secondary mt-1">Revenue Forecast</p>
+</div>
+</div>
+</div>
+<!-- Abstract background SVG lines connecting the blocks (Decorative) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none opacity-20 z-0" xmlns="http://www.w3.org/2000/svg">
+<path class="text-primary flow-path" d="M 150 150 C 300 150, 400 200, 600 150" fill="none" stroke="currentColor" stroke-width="2"></path>
+</svg>
+</section>
+<!-- Technical Explanation Panel -->
+<section class="col-span-12 lg:col-span-4 flex flex-col gap-8 mb-16">
+<div class="bg-surface-container-lowest rounded-2xl p-8 card-elevation h-full">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6 border-b border-surface-variant pb-4">Nonlinear Relationships</h3>
+<p class="font-body-md text-body-md text-secondary mb-6 leading-relaxed">
+                    Standard linear models assume a constant rate of return on investment. In reality, advertising spend exhibits <strong>Diminishing Returns</strong>. Our Polynomial Regression approach transforms raw features into higher-degree spaces, allowing the model curve to bend and accurately map saturation points.
+                </p>
+<!-- Small descriptive graphic placeholder -->
+<div class="w-full h-40 bg-surface-container rounded-xl overflow-hidden relative flex items-center justify-center border border-outline-variant">
+<img class="w-full h-full object-cover opacity-80 mix-blend-multiply" data-alt="A clean, minimalist vector-style data visualization chart showing a blue polynomial regression curve flattening out as it moves right, illustrating the concept of diminishing returns against a light gray grid background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD34sQoWPL0IhGyWfLr57-BTdsL1yykZCJCz9Tm-NYKBFxfFxejlz9cQujZHK-ObefpU0E_VXPUVmZWEORbNAEIv88aH9T2CIdlUvF_i1EINtPolvknfhYAx79RKPRqF6eoQpXk1FmGCJRYX3sCAaFYq6sO5obNeAZsKV0IKkH9q_MdkKtrppjaBiH04J_foP9W299sjtpcanekY2lbFe_tfAPflc_RLv4xRGuCQAmDzM4Xvec_ILk74g"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container to-transparent opacity-50"></div>
+<span class="absolute bottom-4 right-4 font-label-sm text-label-sm text-secondary bg-surface-container-lowest px-2 py-1 rounded shadow-sm">Saturation Curve</span>
+</div>
+</div>
+</section>
+</main>
+</body></html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dataset Repository - SalesLens</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS Config -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "surface-dim": "#d8dadc",
+                        "secondary": "#545f73",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e0e3e5",
+                        "on-secondary-fixed-variant": "#3c475a",
+                        "tertiary-container": "#66768d",
+                        "on-secondary-fixed": "#111c2d",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "inverse-primary": "#b3c5ff",
+                        "outline": "#737686",
+                        "primary-container": "#326cef",
+                        "surface": "#f7f9fb",
+                        "surface-tint": "#0254d7",
+                        "primary-fixed": "#dbe1ff",
+                        "outline-variant": "#c3c6d7",
+                        "tertiary": "#4d5d73",
+                        "on-primary-container": "#fefcff",
+                        "on-surface-variant": "#434654",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container": "#eceef0",
+                        "tertiary-fixed": "#d3e4fe",
+                        "on-primary-fixed": "#00184a",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "inverse-surface": "#2d3133",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#e6e8ea",
+                        "primary": "#0052d3",
+                        "on-surface": "#191c1e",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f7f9fb",
+                        "secondary-fixed": "#d8e3fb",
+                        "secondary-fixed-dim": "#bcc7de",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "on-tertiary-container": "#fdfcff",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "background": "#f7f9fb",
+                        "on-secondary-container": "#586377",
+                        "secondary-container": "#d5e0f8",
+                        "on-primary-fixed-variant": "#003ea6",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "2xl": "1rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "48px",
+                        "unit": "8px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-sm": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap');
+        
+        body {
+            background-color: #F8FAFC;
+        }
+        
+        /* Subtle wave pattern for background */
+        .bg-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50 Q 25 25, 50 50 T 100 50' fill='none' stroke='%23E2E8F0' stroke-width='1' stroke-opacity='0.5'/%3E%3C/svg%3E");
+            background-size: 100px 100px;
+        }
+
+        /* Custom Scrollbar for table */
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 8px;
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="text-on-background font-body-md antialiased min-h-screen flex flex-col relative bg-pattern">
+<!-- Top Navigation Bar (Shared Component Logic) -->
+<nav aria-label="Top Navigation" class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-margin-desktop h-16 bg-surface/80 backdrop-blur-md border-b border-outline-variant transition-all">
+<!-- Logo & Brand -->
+<div class="flex items-center gap-3">
+<img alt="SalesLens Logo" class="h-8 w-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRKsAujXJSIKU2Za0h6kX59fh3HXBXHnGf1_2-eij994WaQDLvhLgW7IZaafG-Pq1foJOHOQq-dBNCv5KmElleLN9meVnyt75QbLDKNi095CrATHWz4PcmJXMVI3c2nsRLT8zI4uRsdkf0zijMXLoK7WeSI0hSOXOWoWaQSFxtYgELeBA-ZvE201BYFlGYlW1iG8knNdzNK0SXC2lI-r7wNnIBMk93-iJRJwThkuVav4C94vA96MuMDbDjoxewNCQFcHs"/>
+<span class="text-headline-md font-headline-md font-bold text-primary tracking-tight">SalesLens</span>
+</div>
+<!-- Navigation Links (Desktop) -->
+<div class="hidden md:flex items-center gap-8 h-full">
+<a class="h-full flex items-center text-secondary hover:text-primary hover:bg-surface-container-low transition-all duration-200 px-4" href="#">Home</a>
+<a class="h-full flex items-center text-secondary hover:text-primary hover:bg-surface-container-low transition-all duration-200 px-4" href="#">Prediction</a>
+<a class="h-full flex items-center text-secondary hover:text-primary hover:bg-surface-container-low transition-all duration-200 px-4" href="#">Analytics</a>
+<!-- Active State for Dataset -->
+<a aria-current="page" class="h-full flex items-center text-primary font-bold border-b-2 border-primary pb-1 hover:bg-surface-container-low transition-all duration-200 px-4" href="#">Dataset</a>
+<a class="h-full flex items-center text-secondary hover:text-primary hover:bg-surface-container-low transition-all duration-200 px-4" href="#">Model</a>
+<a class="h-full flex items-center text-secondary hover:text-primary hover:bg-surface-container-low transition-all duration-200 px-4" href="#">About</a>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-4">
+<button aria-label="Toggle Dark Mode" class="text-secondary hover:text-primary p-2 rounded-full hover:bg-surface-container-low transition-all duration-200">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<button aria-label="Settings" class="text-secondary hover:text-primary p-2 rounded-full hover:bg-surface-container-low transition-all duration-200">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant bg-surface-container-high ml-2 cursor-pointer">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A professional headshot of a female data analyst looking directly at the camera, neutral background, bright even lighting, corporate professional style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALj9pomeDRP_mA2xpw4XHVjbgsycBQuZ0s1eQJfYKxmzeVA6rDPpPWeKO8ASxnCQh58jLAq9J4IHpHNOUyU7VBgz04ZstXz5UEV1eVScNoPj7j0H7GYIyCpgTTs1y5ZBe7-4cut6_zSQCpy71RPcRIGCNNDZKoVqu2KLkhXc-wOwoxMSNmS3w2yAs42zDnQFp4Dh3Y4n-dh1MIWdrE72e68pcy8aBBozn9jd8dvbQCg8Lx0AKMV9GX3g"/>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-24 pb-16 px-margin-desktop md:px-margin-desktop max-w-container-max mx-auto w-full flex flex-col gap-10">
+<!-- Page Header -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="text-display-lg-mobile md:text-display-lg font-display-lg text-on-surface mb-2">Dataset Repository</h1>
+<p class="text-secondary text-body-lg">Manage and explore raw data inputs for predictive modeling.</p>
+</div>
+<div class="flex gap-4">
+<button class="flex items-center justify-center gap-2 px-6 py-3 bg-[#3B73F6] text-white rounded-lg hover:bg-primary-fixed-variant transition-colors shadow-sm font-body-md font-semibold">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">upload</span>
+                    Upload Data
+                </button>
+</div>
+</header>
+<!-- Stats Overview Bento Grid -->
+<section aria-label="Dataset Statistics" class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Stat Card 1 -->
+<div class="bg-surface-container-lowest rounded-2xl p-8 border border-surface-variant shadow-[0_4px_6px_-1px_rgb(0,0,0,0.05)] hover:shadow-md transition-shadow hover:-translate-y-[2px] flex flex-col justify-between">
+<div class="flex items-center justify-between mb-4">
+<span class="text-secondary font-label-sm uppercase tracking-wider text-label-sm">Total Records</span>
+<span class="material-symbols-outlined text-primary-container p-2 bg-primary-container/10 rounded-lg">table_rows</span>
+</div>
+<div>
+<div class="text-[40px] font-bold text-on-surface leading-tight">200</div>
+<div class="text-sm text-secondary mt-1">Rows in current dataset</div>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-surface-container-lowest rounded-2xl p-8 border border-surface-variant shadow-[0_4px_6px_-1px_rgb(0,0,0,0.05)] hover:shadow-md transition-shadow hover:-translate-y-[2px] flex flex-col justify-between">
+<div class="flex items-center justify-between mb-4">
+<span class="text-secondary font-label-sm uppercase tracking-wider text-label-sm">Input Features</span>
+<span class="material-symbols-outlined text-tertiary-container p-2 bg-tertiary-container/10 rounded-lg">schema</span>
+</div>
+<div>
+<div class="text-[40px] font-bold text-on-surface leading-tight">3</div>
+<div class="flex items-center gap-2 mt-1">
+<span class="bg-[#EFF6FF] text-[#1E3A8A] text-xs px-2 py-1 rounded-full font-medium">TV</span>
+<span class="bg-[#EFF6FF] text-[#1E3A8A] text-xs px-2 py-1 rounded-full font-medium">Radio</span>
+<span class="bg-[#EFF6FF] text-[#1E3A8A] text-xs px-2 py-1 rounded-full font-medium">Newspaper</span>
+</div>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-surface-container-lowest rounded-2xl p-8 border border-surface-variant shadow-[0_4px_6px_-1px_rgb(0,0,0,0.05)] hover:shadow-md transition-shadow hover:-translate-y-[2px] flex flex-col justify-between relative overflow-hidden">
+<!-- Decorative background element for the target card -->
+<div class="absolute -right-4 -bottom-4 opacity-5">
+<span class="material-symbols-outlined text-[120px]">track_changes</span>
+</div>
+<div class="flex items-center justify-between mb-4 relative z-10">
+<span class="text-secondary font-label-sm uppercase tracking-wider text-label-sm">Target Variable</span>
+<span class="material-symbols-outlined text-[#10B981] p-2 bg-[#D1FAE5] rounded-lg">ads_click</span>
+</div>
+<div class="relative z-10">
+<div class="text-[40px] font-bold text-on-surface leading-tight">1</div>
+<div class="flex items-center gap-2 mt-1">
+<span class="bg-[#ECFDF5] text-[#065F46] text-xs px-2 py-1 rounded-full font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span>
+                            Sales (Units)
+                        </span>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Data Table Section -->
+<section class="bg-surface-container-lowest rounded-2xl border border-surface-variant shadow-[0_4px_6px_-1px_rgb(0,0,0,0.05)] overflow-hidden flex flex-col">
+<!-- Table Toolbar -->
+<div class="p-6 border-b border-[#F1F5F9] flex flex-col sm:flex-row justify-between items-center gap-4">
+<!-- Search Input -->
+<div class="relative w-full sm:w-96">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-secondary text-sm">search</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-2 border border-outline-variant rounded-lg leading-5 bg-surface-container-lowest placeholder-secondary focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-transparent sm:text-sm transition-shadow font-label-sm" placeholder="Search records by ID or value..." type="text"/>
+</div>
+<!-- Toolbar Actions -->
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="flex items-center justify-center gap-2 px-4 py-2 border border-outline-variant text-[#1E3A8A] rounded-lg hover:bg-surface-container-low transition-colors font-body-md whitespace-nowrap bg-white">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+                        Filter
+                    </button>
+<button class="flex items-center justify-center gap-2 px-4 py-2 border border-outline-variant text-[#1E3A8A] rounded-lg hover:bg-surface-container-low transition-colors font-body-md whitespace-nowrap bg-white">
+<span class="material-symbols-outlined text-[20px]">download</span>
+                        Download CSV
+                    </button>
+</div>
+</div>
+<!-- Table Container -->
+<div class="overflow-x-auto custom-scrollbar w-full">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-surface-variant">
+<th class="px-6 py-4 font-label-sm text-secondary uppercase tracking-wider whitespace-nowrap" scope="col">ID</th>
+<th class="px-6 py-4 font-label-sm text-secondary uppercase tracking-wider whitespace-nowrap" scope="col">
+<div class="flex items-center gap-1 cursor-pointer hover:text-on-surface">
+                                    TV Budget ($K)
+                                    <span class="material-symbols-outlined text-[16px]">unfold_more</span>
+</div>
+</th>
+<th class="px-6 py-4 font-label-sm text-secondary uppercase tracking-wider whitespace-nowrap" scope="col">
+<div class="flex items-center gap-1 cursor-pointer hover:text-on-surface">
+                                    Radio Budget ($K)
+                                    <span class="material-symbols-outlined text-[16px]">unfold_more</span>
+</div>
+</th>
+<th class="px-6 py-4 font-label-sm text-secondary uppercase tracking-wider whitespace-nowrap" scope="col">
+<div class="flex items-center gap-1 cursor-pointer hover:text-on-surface">
+                                    Newspaper Budget ($K)
+                                    <span class="material-symbols-outlined text-[16px]">unfold_more</span>
+</div>
+</th>
+<th class="px-6 py-4 font-label-sm text-primary uppercase tracking-wider whitespace-nowrap bg-primary-fixed/30 border-l border-primary-fixed" scope="col">
+<div class="flex items-center gap-1">
+                                    Sales (Units)
+                                    <span class="material-symbols-outlined text-[16px] text-primary">target</span>
+</div>
+</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-variant bg-surface-container-lowest font-body-md text-on-surface">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-4 font-label-sm text-secondary">#001</td>
+<td class="px-6 py-4">230.1</td>
+<td class="px-6 py-4">37.8</td>
+<td class="px-6 py-4">69.2</td>
+<td class="px-6 py-4 font-semibold text-primary-container bg-primary-fixed/10 border-l border-primary-fixed/50">22.1</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-4 font-label-sm text-secondary">#002</td>
+<td class="px-6 py-4">44.5</td>
+<td class="px-6 py-4">39.3</td>
+<td class="px-6 py-4">45.1</td>
+<td class="px-6 py-4 font-semibold text-primary-container bg-primary-fixed/10 border-l border-primary-fixed/50">10.4</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-4 font-label-sm text-secondary">#003</td>
+<td class="px-6 py-4">17.2</td>
+<td class="px-6 py-4">45.9</td>
+<td class="px-6 py-4">69.3</td>
+<td class="px-6 py-4 font-semibold text-primary-container bg-primary-fixed/10 border-l border-primary-fixed/50">9.3</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-4 font-label-sm text-secondary">#004</td>
+<td class="px-6 py-4">151.5</td>
+<td class="px-6 py-4">41.3</td>
+<td class="px-6 py-4">58.5</td>
+<td class="px-6 py-4 font-semibold text-primary-container bg-primary-fixed/10 border-l border-primary-fixed/50">18.5</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-4 font-label-sm text-secondary">#005</td>
+<td class="px-6 py-4">180.8</td>
+<td class="px-6 py-4">10.8</td>
+<td class="px-6 py-4">58.4</td>
+<td class="px-6 py-4 font-semibold text-primary-container bg-primary-fixed/10 border-l border-primary-fixed/50">12.9</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="px-6 py-4 border-t border-surface-variant flex items-center justify-between bg-surface-container-lowest">
+<div class="text-sm text-secondary">
+                    Showing <span class="font-medium text-on-surface">1</span> to <span class="font-medium text-on-surface">5</span> of <span class="font-medium text-on-surface">200</span> records
+                </div>
+<div class="flex items-center gap-2">
+<button class="p-2 border border-outline-variant rounded-md text-secondary hover:bg-surface-container-low disabled:opacity-50 disabled:cursor-not-allowed" disabled="">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</button>
+<div class="flex gap-1 hidden sm:flex">
+<button class="w-8 h-8 flex items-center justify-center rounded-md bg-primary text-white font-medium text-sm">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-md text-secondary hover:bg-surface-container-low font-medium text-sm transition-colors">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-md text-secondary hover:bg-surface-container-low font-medium text-sm transition-colors">3</button>
+<span class="w-8 h-8 flex items-center justify-center text-secondary">...</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-md text-secondary hover:bg-surface-container-low font-medium text-sm transition-colors">40</button>
+</div>
+<button class="p-2 border border-outline-variant rounded-md text-secondary hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+</body></html>
